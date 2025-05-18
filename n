@@ -1,0 +1,9 @@
+# If you're not already on the main branch, switch to it
+git checkout main
+
+# Make sure all changes are committed
+git add .
+git commit -m "Ready for production deployment"
+
+# Push to GitHub
+git push origin main
