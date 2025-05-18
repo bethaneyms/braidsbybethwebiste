@@ -1,0 +1,255 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 0 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 0 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 100% 50%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.text-red {
+  color: #ff0000;
+}
+
+.bg-red {
+  background-color: #ff0000;
+}
+
+.border-red {
+  border-color: #ff0000;
+}
+
+.text-gold {
+  color: #ffd700;
+}
+
+.bg-gold {
+  background-color: #ffd700;
+}
+
+.border-gold {
+  border-color: #ffd700;
+}
+
+.logo-text {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.service-card {
+  @apply relative overflow-hidden rounded-xl border border-red bg-card p-5 transition-all duration-300;
+}
+
+.service-card:hover {
+  @apply shadow-lg shadow-red/20;
+  transform: translateY(-5px);
+}
+
+.service-card .price {
+  @apply mt-4 hidden text-white transition-all duration-300;
+}
+
+.service-card:hover .price {
+  @apply block;
+}
+
+.service-title {
+  @apply text-xl font-bold text-red;
+}
+
+.hero-image {
+  position: relative;
+  height: calc(100vh - 80px);
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  z-index: 10;
+}
+
+.nav-link {
+  @apply text-white hover:text-red transition-colors duration-200;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #ff0000;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  @apply font-semibold text-red;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+.booking-form {
+  @apply bg-card rounded-lg p-8 shadow-lg border border-red/30;
+}
+
+.booking-form input,
+.booking-form textarea,
+.booking-form select {
+  @apply bg-black border-red/50 focus:border-red focus:ring-red;
+}
+
+.booking-form button {
+  @apply bg-red text-white hover:bg-red/80;
+}
+
+.animated-gradient {
+  background: linear-gradient(45deg, #000000, #440000, #880000, #ff0000, #880000, #440000, #000000);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.service-image-container {
+  overflow: hidden;
+}
+
+.service-image-container img {
+  transition: transform 0.5s ease;
+}
+
+.service-image-container:hover img {
+  transform: scale(1.05);
+}
+
+.glow-on-hover {
+  position: relative;
+  z-index: 1;
+}
+
+.glow-on-hover::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ff0000, #ff3333, #ff0000);
+  z-index: -1;
+  opacity: 0;
+  border-radius: var(--radius);
+  transition: opacity 0.3s ease;
+}
+
+.glow-on-hover:hover::before {
+  opacity: 1;
+}
+
+.reveal-animation {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-animation.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced edge blending effects */
+.edge-blend-left {
+  background: linear-gradient(to right, black 0%, transparent 30%);
+  width: 25%;
+  left: 0;
+  right: auto;
+  opacity: 0.9;
+}
+
+.edge-blend-right {
+  background: linear-gradient(to left, black 0%, transparent 30%);
+  width: 25%;
+  right: 0;
+  left: auto;
+  opacity: 0.9;
+}
+
+.edge-blend-top {
+  background: linear-gradient(to bottom, black 0%, transparent 30%);
+  height: 25%;
+  top: 0;
+  bottom: auto;
+  opacity: 0.9;
+}
+
+.edge-blend-bottom {
+  background: linear-gradient(to top, black 0%, transparent 30%);
+  height: 25%;
+  bottom: 0;
+  top: auto;
+  opacity: 0.9;
+}
+
+.edge-blend-corners {
+  background: radial-gradient(circle at center, transparent 60%, black 100%);
+  opacity: 0.8;
+}
